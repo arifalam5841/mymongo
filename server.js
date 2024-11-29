@@ -15,7 +15,10 @@ const { Console } = require("console");
 const { pseudoRandomBytes } = require("crypto");
 
 mongoose
-  .connect(mongoURI)
+  .connect(mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("DATABASE CONNECTED"))
   .catch((err) => console.log(err));
 

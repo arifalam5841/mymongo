@@ -72,21 +72,25 @@ app.post("/adding-product", (req, res) => {
     return res.status(400).json({ status: false, message: "Invalid input" });
   }
 
-  try {
-    const newproduct = new product({
-      name: names,
-      price: prices,
-      qty: qtys,
-    });
-    newproduct.save();
-    console.log("Product added");
-    res.json({ status: true, message: "Product added successfully..." });
-  } catch (err) {
-    console.log(err);
-    res
-      .status(500)
-      .json({ status: false, message: "Product could not be added" });
+  async function addingproduct() {
+    try {
+      const newproduct = new product({
+        name: names,
+        price: prices,
+        qty: qtys,
+      });
+      newproduct.save();
+      console.log("Product added");
+      res.json({ status: true, message: "Product added successfully..." });
+    } catch (err) {
+      console.log(err);
+      res
+        .status(500)
+        .json({ status: false, message: "Product could not be added" });
+    }
   }
+
+  addingproduct();
 });
 
 // OPERATORS ---------------------------------

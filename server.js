@@ -190,37 +190,37 @@ async function sorting_count() {
 
 // async function updatingdb() {}
 
-async function updateDocument(_id, name) {
-  const result = await product.findByIdAndUpdate(
-    { _id }, // the documents which matches this argument will be changed
-    { $set: { name: "updated new data" } },
-    {
-      new: true, // it will return the updated document
-    }
-  );
-  console.log(result);
+// async function updateDocument(_id, name) {
+//   const result = await product.findByIdAndUpdate(
+//     { _id }, // the documents which matches this argument will be changed
+//     { $set: { name: "updated new data" } },
+//     {
+//       new: true, // it will return the updated document
+//     }
+//   );
+//   console.log(result);
 
-  const result2 = await product.updateMany(
-    { name: name },
-    { $set: { price: 213 } },
-    {
-      new: true,
-    }
-  );
+//   const result2 = await product.updateMany(
+//     { name: name },
+//     { $set: { price: 213 } },
+//     {
+//       new: true,
+//     }
+//   );
 
-  console.log(result2);
+//   console.log(result2);
 
-  const result3 = await product.updateMany(
-    { name: { $not: { $in: ["samsung", "vivo"] } } },
-    { qty: 5 },
-    {
-      new: true,
-    }
-  );
+//   const result3 = await product.updateMany(
+//     { name: { $not: { $in: ["samsung", "vivo"] } } },
+//     { qty: 5 },
+//     {
+//       new: true,
+//     }
+//   );
 
-  console.log(result3);
-}
-updateDocument("674743e8bd1290621146ed45", "samsung");
+//   console.log(result3);
+// }
+// updateDocument("674743e8bd1290621146ed45", "samsung");
 //end{code}
 
 app.listen(port, () => {

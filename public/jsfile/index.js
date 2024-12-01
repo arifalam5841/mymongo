@@ -11,7 +11,7 @@ submitbtn.addEventListener("click", () => {
   const qtyinput = document.getElementById("qty").value;
   console.log("working");
   axios
-    .post("/adding-product", {
+    .post("https://backend-mymongo.onrender.com/adding-product", {
       names: nameinput,
       prices: priceinput,
       qtys: qtyinput,

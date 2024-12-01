@@ -14,6 +14,16 @@ const request = require("requests");
 const { Console } = require("console");
 const { pseudoRandomBytes } = require("crypto");
 
+const cors = require("cors");
+
+app.use(
+  cors({
+    origin: "https://mymongo.vercel.app/", // Replace with your actual Vercel frontend URL
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
+
 mongoose
   .connect(mongoURI, {
     useNewUrlParser: true,
